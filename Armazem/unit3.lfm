@@ -1,0 +1,49 @@
+object Form3: TForm3
+  Left = 957
+  Height = 126
+  Top = 358
+  Width = 200
+  Caption = 'Dia'
+  ClientHeight = 126
+  ClientWidth = 200
+  OnCreate = FormCreate
+  LCLVersion = '2.0.10.0'
+  object Label1: TLabel
+    Left = 19
+    Height = 15
+    Top = 32
+    Width = 20
+    Caption = 'Dia:'
+    ParentColor = False
+    ParentFont = False
+  end
+  object Edit1: TEdit
+    Left = 70
+    Height = 23
+    Top = 26
+    Width = 90
+    ParentFont = False
+    TabOrder = 0
+    Text = 'dd/mm/aaaa'
+  end
+  object Button1: TButton
+    Left = 19
+    Height = 25
+    Top = 83
+    Width = 75
+    Caption = 'Ok'
+    OnClick = Button1Click
+    ParentFont = False
+    TabOrder = 1
+  end
+  object Button2: TButton
+    Left = 109
+    Height = 25
+    Top = 83
+    Width = 75
+    Caption = 'Cancelar'
+    OnClick = Button2Click
+    ParentFont = False
+    TabOrder = 2
+  end
+end

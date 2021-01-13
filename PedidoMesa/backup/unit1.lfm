@@ -1,0 +1,114 @@
+object Form1: TForm1
+  Left = 650
+  Height = 517
+  Top = 238
+  Width = 871
+  Caption = 'Trata Pedido-Mesa'
+  ClientHeight = 492
+  ClientWidth = 871
+  DesignTimePPI = 120
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '2.0.10.0'
+  object DBGrid1: TDBGrid
+    Left = 128
+    Height = 200
+    Top = 64
+    Width = 608
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    ReadOnly = True
+    TabOrder = 0
+    OnCellClick = DBGrid1CellClick
+  end
+  object Panel1: TPanel
+    Left = 128
+    Height = 72
+    Top = 312
+    Width = 608
+    TabOrder = 1
+  end
+  object MainMenu1: TMainMenu
+    Left = 32
+    Top = 16
+    object MenuItem6: TMenuItem
+      Caption = 'Sair'
+      OnClick = MenuItem6Click
+    end
+    object MenuItem1: TMenuItem
+      Caption = 'Novo Pedido'
+      OnClick = MenuItem1Click
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Consultar Estado'
+      OnClick = MenuItem2Click
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Marcar Mesa'
+      object MenuItem5: TMenuItem
+        Caption = 'Limpa'
+        OnClick = MenuItem5Click
+      end
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Pagar Pedido'
+      OnClick = MenuItem4Click
+    end
+  end
+  object SQLQuery1: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'IDLocal'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'IDEmpregado'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'N_Mesa'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'Cod_EstadoMesa'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Database = MSSQLConnection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'SELECT *'
+      'FROM Mesa'
+    )
+    Params = <>
+    Left = 320
+    Top = 420
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = MSSQLConnection1
+    Left = 232
+    Top = 420
+  end
+  object MSSQLConnection1: TMSSQLConnection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = 'Zurrapa'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    Left = 128
+    Top = 420
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 392
+    Top = 420
+  end
+end

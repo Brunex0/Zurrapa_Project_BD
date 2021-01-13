@@ -1,0 +1,45 @@
+object Form4: TForm4
+  Left = 735
+  Height = 218
+  Top = 348
+  Width = 285
+  Caption = 'Local'
+  ClientHeight = 218
+  ClientWidth = 285
+  DesignTimePPI = 120
+  OnCreate = FormCreate
+  LCLVersion = '2.0.10.0'
+  object Label1: TLabel
+    Left = 40
+    Height = 20
+    Top = 56
+    Width = 61
+    Caption = 'ID Local: '
+    ParentColor = False
+  end
+  object Button1: TButton
+    Left = 32
+    Height = 31
+    Top = 120
+    Width = 94
+    Caption = 'Ok'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 152
+    Height = 31
+    Top = 120
+    Width = 94
+    Caption = 'Cancelar'
+    OnClick = Button2Click
+    TabOrder = 1
+  end
+  object Edit1: TEdit
+    Left = 144
+    Height = 28
+    Top = 48
+    Width = 100
+    TabOrder = 2
+  end
+end

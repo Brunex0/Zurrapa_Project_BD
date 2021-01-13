@@ -1,0 +1,154 @@
+object Form1: TForm1
+  Left = 85
+  Height = 558
+  Top = 81
+  Width = 812
+  Caption = 'Trata Pedido-Balcão'
+  ClientHeight = 0
+  ClientWidth = 0
+  DesignTimePPI = 120
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '2.0.10.0'
+  object DBGrid1: TDBGrid
+    Left = 64
+    Height = 288
+    Top = 32
+    Width = 680
+    AutoAdvance = aaLeft
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    TabOrder = 0
+    OnCellClick = DBGrid1CellClick
+  end
+  object Panel1: TPanel
+    Left = 64
+    Height = 63
+    Top = 336
+    Width = 680
+    TabOrder = 1
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 496
+    Top = 448
+  end
+  object SQLQuery1: TSQLQuery
+    PacketRecords = 50
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'IDPedido'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'IDLocal'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'IDEmpregado'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'N_Mesa'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'Dia'
+        DataType = ftString
+        Precision = -1
+        Size = 30
+      end    
+      item
+        Name = 'Hora'
+        DataType = ftString
+        Precision = -1
+        Size = 30
+      end    
+      item
+        Name = 'IDPedido_1'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'Estado'
+        DataType = ftString
+        Precision = -1
+        Size = 30
+      end    
+      item
+        Name = 'Estado_1'
+        DataType = ftString
+        Precision = -1
+        Size = 30
+      end>
+    Database = MSSQLConnection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select * , E.Estado'
+      'From Pedidos P, Estado_Pedido E'
+      'Where P.IDPedido=E.IDPedido'
+    )
+    Params = <>
+    Left = 384
+    Top = 448
+  end
+  object MSSQLConnection1: TMSSQLConnection
+    Connected = False
+    LoginPrompt = False
+    AfterConnect = MSSQLConnection1AfterConnect
+    DatabaseName = 'Zurrapa'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    Left = 200
+    Top = 450
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = MSSQLConnection1
+    Left = 288
+    Top = 448
+  end
+  object MainMenu1: TMainMenu
+    Left = 8
+    Top = 16
+    object MenuItem8: TMenuItem
+      Caption = 'Sair'
+      OnClick = MenuItem8Click
+    end
+    object MenuItem6: TMenuItem
+      Caption = 'Lista Pedidos'
+      OnClick = MenuItem6Click
+    end
+    object MenuItem1: TMenuItem
+      Caption = 'Pedidos'
+      object MenuItem2: TMenuItem
+        Caption = 'Pedidos Insatisfeitos'
+        OnClick = MenuItem2Click
+      end
+      object MenuItem5: TMenuItem
+        Caption = 'Pedidos Satisfeitos'
+        OnClick = MenuItem5Click
+      end
+      object MenuItem3: TMenuItem
+        Caption = 'Pedidos Parcialmente Pagos'
+        OnClick = MenuItem3Click
+      end
+      object MenuItem4: TMenuItem
+        Caption = 'Pedidos Pagos'
+        OnClick = MenuItem4Click
+      end
+    end
+    object MenuItem7: TMenuItem
+      Caption = 'Marcar Pedido Satisfeito'
+      OnClick = MenuItem7Click
+    end
+  end
+end

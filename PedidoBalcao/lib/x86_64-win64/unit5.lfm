@@ -1,0 +1,104 @@
+object Form5: TForm5
+  Left = 792
+  Height = 374
+  Top = 261
+  Width = 400
+  Caption = 'Login'
+  ClientHeight = 0
+  ClientWidth = 0
+  DesignTimePPI = 120
+  OnCreate = FormCreate
+  LCLVersion = '2.0.10.0'
+  object paIpAddress: TPanel
+    Left = -12
+    Height = 63
+    Top = 0
+    Width = 420
+    Caption = 'paIpAddress'
+    TabOrder = 0
+  end
+  object laHostName: TLabel
+    Left = 48
+    Height = 20
+    Top = 90
+    Width = 74
+    Caption = 'HostName:'
+    ParentColor = False
+  end
+  object edHostName: TEdit
+    Left = 240
+    Height = 28
+    Top = 82
+    Width = 100
+    TabOrder = 1
+    Text = '192.168.1.78'
+  end
+  object laDataBase: TLabel
+    Left = 48
+    Height = 20
+    Top = 140
+    Width = 66
+    Caption = 'DataBase:'
+    ParentColor = False
+  end
+  object edDataBase: TEdit
+    Left = 240
+    Height = 28
+    Top = 132
+    Width = 100
+    TabOrder = 2
+    Text = 'Zurrapa'
+  end
+  object laUserName: TLabel
+    Left = 48
+    Height = 20
+    Top = 193
+    Width = 72
+    Caption = 'UserName:'
+    ParentColor = False
+  end
+  object edUserName: TEdit
+    Left = 240
+    Height = 28
+    Top = 185
+    Width = 100
+    TabOrder = 3
+    Text = 'aluno'
+  end
+  object laPassword: TLabel
+    Left = 48
+    Height = 20
+    Top = 250
+    Width = 64
+    Caption = 'Password:'
+    ParentColor = False
+  end
+  object edPassword: TEdit
+    Left = 240
+    Height = 28
+    Top = 242
+    Width = 100
+    EchoMode = emPassword
+    PasswordChar = '*'
+    TabOrder = 4
+    Text = 'aluno1'
+  end
+  object buOk: TButton
+    Left = 60
+    Height = 31
+    Top = 300
+    Width = 94
+    Caption = 'OK'
+    OnClick = buOkClick
+    TabOrder = 5
+  end
+  object buCancel: TButton
+    Left = 240
+    Height = 31
+    Top = 300
+    Width = 94
+    Caption = 'CANCEL'
+    OnClick = buCancelClick
+    TabOrder = 6
+  end
+end

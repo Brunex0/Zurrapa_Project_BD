@@ -1,0 +1,115 @@
+object Form1: TForm1
+  Left = 713
+  Height = 521
+  Top = 193
+  Width = 569
+  Caption = 'Armazém'
+  ClientHeight = 0
+  ClientWidth = 0
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '2.0.10.0'
+  object DBGrid1: TDBGrid
+    Left = 64
+    Height = 264
+    Top = 70
+    Width = 456
+    AutoAdvance = aaRightUp
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    ParentFont = False
+    TabOrder = 0
+  end
+  object Panel1: TPanel
+    Left = 64
+    Height = 50
+    Top = 346
+    Width = 454
+    ParentFont = False
+    TabOrder = 1
+    OnClick = Panel1Click
+  end
+  object MainMenu1: TMainMenu
+    Left = 29
+    Top = 8
+    object MenuItem14: TMenuItem
+      Caption = 'Sair'
+      OnClick = MenuItem14Click
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Consultar Stock'
+      OnClick = MenuItem2Click
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Recarregar Stock'
+      OnClick = MenuItem3Click
+    end
+    object MenuItem7: TMenuItem
+      Caption = 'Valor Stock'
+      OnClick = MenuItem7Click
+    end
+    object MenuItem16: TMenuItem
+      Caption = 'Consultar Despesas/Lucro Bares'
+      OnClick = MenuItem16Click
+    end
+  end
+  object MSSQLConnection1: TMSSQLConnection
+    Connected = False
+    LoginPrompt = True
+    DatabaseName = 'Zurrapa'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    Left = 77
+    Top = 435
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = MSSQLConnection1
+    Left = 134
+    Top = 435
+  end
+  object SQLQuery1: TSQLQuery
+    PacketRecords = 50
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'IDLocal'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'IDProduto'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'Qtd'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'Codigo_Unid'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Database = MSSQLConnection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'Select *'
+      'From Stock'
+      ''
+      ''
+    )
+    Params = <>
+    Left = 198
+    Top = 435
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 262
+    Top = 435
+  end
+end
